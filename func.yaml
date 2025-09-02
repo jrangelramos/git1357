@@ -1,4 +1,14 @@
 specVersion: 0.36.0
 name: git1357
 runtime: node
+registry: image-registry.openshift-image-registry.svc:5000/test-manual
+namespace: test-manual
 created: 2025-09-02T10:33:57.486086192-03:00
+build:
+  git:
+    url: https://github.com/jrangelramos/git1357
+    revision: main
+  builder: s2i
+deploy:
+  namespace: test-manual
+  image: image-registry.openshift-image-registry.svc:5000/test-manual/git1357:latest
